@@ -134,6 +134,7 @@ namespace WindowsFormsApplication1
 
         private void InGame()
         {
+            //
                 scoreButton.Invoke(new Action(() => scoreButton.Enabled = false));
 
             int speedRight = 15;
