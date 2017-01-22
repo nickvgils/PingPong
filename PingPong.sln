@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "WindowsFormsApplication1\Client.csproj", "{D74025C1-B625-4C04-BC03-C08790F93A6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{F8B9A242-7147-41E6-861B-AAE1EAD69028}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HelpMethods", "SharedProject1\HelpMethods.shproj", "{AA6A0A4D-DB2F-4EA6-A1DF-3BC278577FE7}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SharedProject1\SharedProject1.projitems*{d74025c1-b625-4c04-bc03-c08790f93a6f}*SharedItemsImports = 4
+		SharedProject1\SharedProject1.projitems*{f8b9a242-7147-41e6-861b-aae1ead69028}*SharedItemsImports = 4
+		SharedProject1\SharedProject1.projitems*{aa6a0a4d-db2f-4ea6-a1df-3bc278577fe7}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D74025C1-B625-4C04-BC03-C08790F93A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D74025C1-B625-4C04-BC03-C08790F93A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D74025C1-B625-4C04-BC03-C08790F93A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D74025C1-B625-4C04-BC03-C08790F93A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B9A242-7147-41E6-861B-AAE1EAD69028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B9A242-7147-41E6-861B-AAE1EAD69028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B9A242-7147-41E6-861B-AAE1EAD69028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B9A242-7147-41E6-861B-AAE1EAD69028}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
