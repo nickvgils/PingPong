@@ -148,6 +148,8 @@ namespace Server
                         gameOver = true;
                         break;
                     default:
+                        Console.WriteLine("stuurt pos door");
+                        WriteReadMethods.SendTextMessage(writerTcp, "pos");
                         WriteReadMethods.SendTextMessage(writerTcp, rightWrong);     
                         break;
                     case "wrong2":

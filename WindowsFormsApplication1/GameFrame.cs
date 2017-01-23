@@ -147,21 +147,9 @@ namespace WindowsFormsApplication1
                 speedDown = -speedDown;
             }
 
-
-            Timer timer2 = new Timer(1000);
-            timer2.Elapsed += (source, e) =>
-            {
-
-                WriteReadMethods.SendTextMessage(writer, player1.Location.X + "");
-                int number = int.Parse(WriteReadMethods.ReadTextMessage(reader));
-
-                number = 240 + (480 - number);
-
-                player2.Invoke(new Action(() => player2.Location = new Point(number, player2.Location.Y)));
-
-            };
-
             Timer timer = new Timer(gameSpeed);
+            Timer timer2 = new Timer(1000);
+
             timer.Elapsed += (source, e) =>
             {
 
@@ -190,29 +178,7 @@ namespace WindowsFormsApplication1
                         }
 
                     }
-                    else
-                    {
-                        Console.WriteLine("leest of tegenstander het goed heeft");
-                        //teammate has left quesstion
-                        string rightWrong = WriteReadMethods.ReadTextMessage(reader);
-                        if (rightWrong == "right")
-                        {
-                            Console.WriteLine("tegenstander heeft het goed");
-                            score++;
-                            UpdateScore(score);
-                        }
-                        else
-                        {
-                            timer2.Stop();
-                            Console.WriteLine("wrong");
-                            WriteReadMethods.SendTextMessage(writer, "wrong2");
-                            ResetAfterGame(score);
-                            timer.Stop();
-                        }
 
-
-
-                    }
 
                     speedDown = -speedDown;
                     if (timer.Interval - 5 > 0 && timer.Enabled)
@@ -231,6 +197,45 @@ namespace WindowsFormsApplication1
 
 
             };
+
+
+            timer2.Elapsed += (source, e) =>
+            {
+
+                WriteReadMethods.SendTextMessage(writer, player1.Location.X + "");
+
+                Console.WriteLine("leest of tegenstander het goed heeft");
+                //teammate has left quesstion
+                string rightWrong = WriteReadMethods.ReadTextMessage(reader);
+                switch (rightWrong)
+                {
+                    case "right":
+                        Console.WriteLine("tegenstander heeft het goed");
+                        score++;
+                        UpdateScore(score);
+                        break;
+                    case "pos":
+                        string msg = WriteReadMethods.ReadTextMessage(reader);
+                        int number = int.Parse(msg);
+
+                        number = 240 + (480 - number);
+
+                        player2.Invoke(new Action(() => player2.Location = new Point(number, player2.Location.Y)));
+                        break;
+                    case "wrong":
+                        timer2.Stop();
+                        Console.WriteLine("wrong");
+                        WriteReadMethods.SendTextMessage(writer, "wrong2");
+                        ResetAfterGame(score);
+                        timer.Stop();
+                        break;
+                }
+
+           
+
+            };
+
+          
 
             timer2.Start();
             timer.Start();
